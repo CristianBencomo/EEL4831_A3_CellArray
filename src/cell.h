@@ -3,16 +3,18 @@
 
 class Cell
 {
-    typedef void (Cell::*funcPointer)(int);
-    funcPointer *funcArray = new funcPointer[3];
-    
     private:
+        int x,y,z,funcIndex;
+        void static f1(int x);
+        void static f2(int x);
+        void static f3(int x);
+        void callFunc(int index);
 
 
     public:
-        void funcArrayGen();
         void tick();
-        inline Cell(int x, int y, int z);
+        Cell(int x, int y, int z);
+        typedef void (*funcPointer)(int);
 };
 
 #endif
