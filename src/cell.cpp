@@ -3,9 +3,11 @@
 
 class Cell
 {
+    typedef void (Cell::*funcPointer)(int);
+    funcPointer *funcArray = new funcPointer[3];
+    
     private:
-        typedef void (*Cell::funcPointer)(int);
-        static funcPointer *funcArray;
+        // static funcPointer *funcArray;
         int x,y,z,funcIndex;        
         
         void f1(int x)
@@ -26,21 +28,21 @@ class Cell
         void callFunc(int index)
         {
             int val = rand()%99 +1;
-            (*(funcArray[index]))(val);
+            (this->*funcArray[index])(val);
         }
 
     public:
         void funcArrayGen()
         {
-            funcArray = new Cell::funcPointer[3];
-            funcArray[0] = &f1;
-            funcArray[1] = &f2;
-            funcArray[2] = &f3;
+            funcArray[0] = &Cell::f1;
+            funcArray[1] = &Cell::f2;
+            funcArray[2] = &Cell::f3;
         }
 
         void tick()
         {
             std::printf("This cell is located at X: %d\tY: %d\tZ:%d\n", x, y, z);
+            callFunc(funcIndex);
 
         }
         
@@ -52,9 +54,5 @@ class Cell
 
             srand(time(0));
             funcIndex = rand()%3;
-        }
-
-
-
-        
+        }        
 };
