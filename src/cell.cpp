@@ -1,3 +1,4 @@
+#include "cell.h"
 #include <iostream>
 #include <cstdio>
 
@@ -46,7 +47,7 @@ class Cell
 
         }
         
-        Cell(int x, int y, int z)
+        inline Cell(int x, int y, int z)
         {
             Cell::x = x;
             Cell::y = y;

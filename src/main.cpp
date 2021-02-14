@@ -1,5 +1,6 @@
-#include "cell.h"
+#include "cell.cpp"
 #include <string>
+#include <iostream>
 
 Cell ****array;
 int x, y, z;
@@ -18,8 +19,6 @@ void cellArrayGen()
 
             for (int k = 0; k < z; k++)
             {
-                // Cell::Cell cell(i,j,k);
-                // Cell * cell_ptr = &cell;
                 array[i][j][k] = new Cell(i,j,k);
             }
         }
@@ -49,9 +48,26 @@ int main(int argc, char const *argv[])
 
     do
     {
-        
-    } while (false);
+        cellArrayGen();
+
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                for (int k = 0; k < z; k++)
+                {
+                    array[i,j,k];
+                }
+            }
+        }
+
+        cellArrayDelete();
+
+        std::cout << "Would you like to run the programn again? (Y/N)" << std::endl;
+        std::cin >> userAnswer;
+    } while (userAnswer.compare("N"));
     
+    std::cout << "This is a test" << std::endl;
 
 
     return 0;
