@@ -1,7 +1,7 @@
 # EEL4831_A3_CellArray
 
 Author: Cristian Bencomo        
-Class: EEL4831
+Class: EEL4831                     
 Assignment #: 3          
 
 ## Description
